@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../libs/jquery-ui-1.11/jquery-ui.min.css">
     <link rel="stylesheet" href="../css/formvalidator.css">
-<!--    <link rel="stylesheet" href="../css/interactionnotifier.css">-->
+    <link rel="stylesheet" href="../INotifier/css/interactionnotifier.css">
     
 </head>
 
@@ -180,13 +180,13 @@
     <script src="../libs/jquery-2.1.3.min.js"></script>
     <script src="../js/FormValidatorConfig-2.0.js"></script>
     <script src="../js/FormValidator-2.0.js"></script>
-<!--    <script src="../js/interactionnotifier.js"></script>-->
+    <script src="../INotifier/js/interactionnotifier.js"></script>
     <script src="../libs/jquery-ui-1.11/jquery-ui.min.js"></script>
     <script>
         var iNotifier;
         $(document).ready(function () {
             
-            //iNotifier = new TPG.InteractionNotifier($("#banner"), true, ["../json/jquery-ui-shortcuts.json", "../json/tpg-shortcuts.json"]);
+            iNotifier = new TPG.InteractionNotifier($("#banner"), true, ["../INotifier/json/jquery-ui-shortcuts.json", "../INotifier/json/tpg-shortcuts.json"]);
             
             $("#mainTabs").tabs();
             $("#passengers").spinner({
