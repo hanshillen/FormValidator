@@ -1,0 +1,102 @@
+/************************ ERROR AND WARNING STYLES ************************/
+.errorSummaryHeading {
+	background-color: #990000;
+	border-color: #990000;
+	color: #fff;
+	padding: 15px;
+	border-radius:4px;
+    margin: 0 0 3px 0;
+}
+.error, .warning, .success {
+	font-size: .75em;
+	font-weight: 700;
+	line-height:1em;
+}
+.error i, .warning i, .success i {
+	font-size: 16px;
+	margin-right:7px;
+}
+.error, body .errorSummaryItem a, .error .icon-circle_exclamation_mark {
+	color: #990000;
+}
+.warning {
+	color: #d44116;
+}
+.smallText.warning, .smallText.error {
+	font-size: .875em;
+	font-weight: normal;
+}
+.normal-text.warning, .normal-text.success, .normal-text.danger, .normal-text.error, .normal-text {
+	font-size: 1em;
+}
+.dental-error, .error-text {
+	color: #990000;
+}
+
+/*Error handling Styles*/
+.feedbackMsg {
+	display:none;
+    font-size: 1em;
+    vertical-align: middle;
+}
+.feedbackMsg.error, .feedbackMsg.success, .feedbackMsg.waiting {
+	display: inline;
+}
+h2.errorSummaryHeading {
+	margin-bottom:10px;
+	font-size: 100%;
+}
+ul.errorSummaryList {
+	background-color: #FDE9EA;
+	border-radius:4px;
+	padding: 10px 20px;
+    margin-bottom: 0;
+}
+
+.errorSummaryList li {
+	line-height:1.5em;
+	list-style: disc inside none;
+}
+
+.errorSummaryList a {
+	text-decoration: underline;
+    margin: 12px 0;
+    padding: 2px;
+}
+
+.errorSummaryList .errorSummaryLabel {
+	font-weight: bold;
+}
+.feedbackMsg .glyphicon {
+	font-size: 1.5em;    
+    vertical-align: middle;
+}
+.errorSummaryHeading .iconCustom-exclamation-sign {
+	font-size: 28px;
+	vertical-align: middle;
+	margin-right:15px;
+}
+input.errorField, select.errorField {
+	border-color: #990000;
+}
+
+input[type="text"], input[type="password"], textarea {
+width: 100%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+select.errorField {
+border: 1px solid #990000;
+}
+
+.errorSummaryContainer {
+    padding: 3px;    
+}
+.errorSummaryContainer:focus, .errorSummaryContainer a:focus {
+    outline: 2px solid navy;
+    box-shadow: 0 0 2px 4px #000080;
+    outline-offset: -1px;
+}
