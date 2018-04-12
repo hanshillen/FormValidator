@@ -1,0 +1,28 @@
+:root {
+  --input-padding-x: 1.38em;
+  --input-padding-y: .01em;
+}
+
+.hh-floating-label > label {
+  position: absolute;
+  top: var(--input-padding-y);
+  left: var(--input-padding-x);
+  display: block;
+  width: 100%;
+  margin-bottom: 0; 
+  color: #505050;
+  transition: all .1s ease-in-out;
+}
+
+.hh-floating-label input:not(:placeholder-shown) ~ label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+.hh-floating-label.hh-ph-hidden label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+}

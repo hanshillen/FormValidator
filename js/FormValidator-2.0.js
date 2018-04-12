@@ -95,7 +95,11 @@ TPG.validators = [];
 			summaryList: "<ul></ul>",
 			summaryListItem: "<li></li>",
 			summaryListLink: "<a></a>",
-			inlineFeedbackItem: "<span></span>"
+			inlineFeedbackItem: "<span></span>",
+			inlineErrorClass: "error",
+			inlineSuccessClass: "success",
+			invalidFieldClass: "errorField",
+			validFieldClass: "successField"
 		};
 
 		//override markup strings if available 
@@ -391,47 +395,6 @@ TPG.validators = [];
 		}
 		
 		/**
-		 * (deprecated) Adds error to the validation summary list.
-		 * @deprecated, remove when possible. use {@link #setError and #addSUmmaryListItem instead}. For asynchronous validators, use the async property and {@link #handleAsyncResult}
-		 */
-		this.setCustomError = function(field, errorMsg) {
-			var errors = _getErrors();
-
-			if (errorMsg != "") {
-			var error = {};
-			var $label = _getLabel($(field));
-				error.text = $label.text() == "" ? errorMsg : $label.text() + ": " + errorMsg;
-			error.field = $(field);
-			error.label = $label;
-			errors.push(error);
-
-			}
-
-			$(".errorSummaryContainer", _$formGroupContainer).remove();
-			_createErrorSummary(errors);
-			if (errorMsg != "") {
-				if (!$(field).is("fieldset")) {
-			_generateErrorHTML($(field), errorMsg);
-				} else {
-					$(field).addClass("errorField").attr("aria-invalid", "true");
-					_$invalids = _$invalids.add($(field));
-
-					var errorElement = $(field + "-feedbackMsg");
-					var $msg = errorElement.removeClass("success waiting").addClass("error");
-					$msg.html(_getLocalizedString("errorPrefix") + errorMsg);
-				}
-			}
-			if (errors.length) {
-				var $list = $(".errorSummaryList", _$formGroupContainer);
-				if (!$(field).is("fieldset")) {
-				$(".errorSummaryContainer", _$formGroupContainer).focus();
-				}
-				return false;
-			}
-			return true;
-		};
-		
-		/**
 		 * Adds single error to validation summary list.  
 		 * This method is automatically called by handleAsyncResult() when asynchronous validation is completed 
 		 * In addition, this can be called manually (combine with setError, which adds an inline message)
@@ -591,10 +554,10 @@ TPG.validators = [];
 		function _generateErrorHTML($field, validationHTML) {
 			//console.log("generating error: " + validationHTML);
 			_cleanUpFeedback($field)
-			$field.addClass("errorField").attr("aria-invalid", "true");
+			$field.addClass(_markupStrings.invalidFieldClass).attr("aria-invalid", "true");
 			_$invalids = _$invalids.add($field);
 			var $msg = _getFeedbackElement( $field )
-				.removeClass("success waiting").addClass("error");
+				.removeClass(_markupStrings.inlineSuccessClass + " waiting").addClass(_markupStrings.inlineErrorClass);
 			if (!$msg.length) {
 				return;
 			}
@@ -624,8 +587,9 @@ TPG.validators = [];
 		 */ 
 		function _generateSuccessHTML($field, validationMsg) {
 			_cleanUpFeedback($field);
+			$field.addClass(_markupStrings.validFieldClass);
 			var $msg = _getFeedbackElement( $field )
-				.removeClass("error waiting").addClass("success");
+				.removeClass(_markupStrings.inlineErrorClass + " waiting").addClass(_markupStrings.inlineSuccessClass);
 			if (!$msg.length) {
 				return;
 			}
@@ -652,9 +616,9 @@ TPG.validators = [];
 		 * @param {jQuery} $field The form field that needs to be cleaned up
 		 */
 		function _cleanUpFeedback($field) {
-			$field.removeClass("errorField").attr("aria-invalid", "false");
+			$field.removeClass(_markupStrings.invalidFieldClass).attr("aria-invalid", "false");
 			var $msg = _getFeedbackElement( $field );
-			$msg.removeClass("error success waiting").html(_nbsp.cloneNode(false));
+			$msg.removeClass(_markupStrings.inlineErrorClass + " " + _markupStrings.inlineSuccessClass + " waiting").html(_nbsp.cloneNode(false));
 			
 			if (that.useNextErrorLinks) {
 				// TODO:This causes focus to be lost when tabbing away from a valid field that previously had a nextErrorLink

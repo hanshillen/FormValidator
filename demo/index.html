@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Basic Form Validator Demo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Basic Form Validator Demo</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-hh.css">
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.css">
 </head>
+
 <body>
-    <p>Put Basic Formvalidator demo here</p>
+	<div class="container-fluid">
+		<h1>Basic Form Validator Demo</h1>
+		<form action="#">
+			<div class="row">
+				<div class="col-md-8">
+					<fieldset data-validationgroup>
+						<legend>
+							<h2>Personal Details</h2>
+						</legend>
+						<div class="form-row">
+							<div class="col-sm-1">
+								<label for="demo-title" class="col-form-label col-form-label-lg float-right">Title</label>
+							</div>
+							<div class="col-sm-2">
+								<select name="demo-title" id="demo-title" class="form-control form-control-lg" required>
+									<option value="">select</option>
+									<option value="mr">Mr.</option>
+									<option value="ms">Ms.</option>
+									<option value="Mss">Mss.</option>
+									<option value="dr">Dr.</option>
+								</select>
+							</div>
+							<div class="form-group col-sm hh-floating-label">
+								<label for="demo-first-name" class="col-form-label col-form-label-lg">First Name</label>
+								<input type="text" id="demo-first-name" class="form-control form-control-lg" required data-validate="notBlank lastName"/>
+							</div>
+							<div class="form-group col-sm hh-floating-label">
+								<label for="demo-last-name" class="col-form-label col-form-label-lg">
+									Last Name
+								</label>
+								<input type="text" id="demo-last-name" class="form-control form-control-lg" required data-validate="notBlank firstName"/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm hh-floating-label">
+								<label for="demo-phone-landline" class="col-form-label col-form-label-lg">Phone Landline</label>
+								<input type="tel" id="demo-phone-landline" class="form-control form-control-lg" data-validate="notBlank phoneNumber"/>
+							</div>
+							<div class="form-group col-sm hh-floating-label">
+								<label for="demo-phone-mobile" class="col-form-label col-form-label-lg">Phone Mobile</label>
+								<input type="tel" id="demo-phone-mobile" class="form-control form-control-lg" data-validate="phoneNumber"/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm hh-floating-label">
+								<label for="demo-email" class="col-form-label col-form-label-lg">
+									Email
+								</label>
+								<input id="demo-email" type="email" class="form-control form-control-lg" required data-validate="notBlank email"/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm-3">
+								<button type="submit" class="btn btn-dark form-control form-control-lg" data-validationtrigger>Submit</button>
+							</div>
+							<div class="form-group col-sm-3">
+								<button type="reset" class="btn btn-dark form-control form-control-lg">Reset</button>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="col-md">
+					Hello!
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/demo.js"></script>
+	<script src="../js/FormValidatorConfig-2.0.js"></script>
+	<script src="../js/FormValidator-2.0.js"></script>
 </body>
+
 </html>

@@ -26,7 +26,7 @@ TPG.validatorLocalizedStrings = {
 		summaryHeadingSingle : "Your information contains 1 error",
 		summaryHeadingPlural : "Your information contains %s errors",
 		//errorPrefix : "<span class='iconCustom-exclamation-sign' aria-hidden='true'></span><span class='HiddenText'> </span>Important: ",
-		errorPrefix : "<span class='glyphicon' aria-hidden='true'>&#xe101;</span><span class='sr-only'>Problem: </span> ",
+		errorPrefix : "<span class='oi oi-warning' aria-hidden='true'></span><span class='sr-only'>Problem: </span>",
 		errorSeparator : ": ",
 		successPrefix : "Success: ",
 		waitingForValidation : "Validating..."
@@ -44,18 +44,22 @@ TPG.validatorLocalizedStrings = {
 
 /**
  * How long to wait for asynchronous validation callbacks before they timeout
- * When the timeout is reached before the callback returns, the "please wait..." indicatsor is removed
+ * When the timeout is reached before the callback returns, the "please wait..." indicator is removed
  * @type number
  */
 TPG.validatorAsyncTimeoutDuration = 3000; 
 
 TPG.validatorHTMLStrings = {
-		summaryHeading: "<h4><span class='glyphicon' aria-hidden='true'>&#xe101;</span><span class='sr-only'>Problem: </span> </h4>",
-		summarycontainer: "<div></div>",
+		summaryHeading: "<h4 class='alert-heading'><span class='oi oi-warning' aria-hidden='true'></span><span class='sr-only'>Problem: </span></h4>",
+		summarycontainer: "<div class='alert alert-danger'></div>",
 		summaryList: "<ul></ul>",
 		summaryListItem: "<li></li>",
-		summaryListLink: "<a></a>",
-		inlineFeedbackItem: "<span></span>"
+		summaryListLink: "<a class='alert-link'></a>",
+		inlineFeedbackItem: "<span></span>",
+		inlineErrorClass: "invalid-feedback",
+		inlineSuccessClass: "valid-feedback",
+		invalidFieldClass: "is-invalid",
+		validFieldClass: "is-valid"
 };
 
 
