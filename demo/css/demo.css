@@ -12,6 +12,7 @@
   margin-bottom: 0; 
   color: #505050;
   transition: all .1s ease-in-out;
+  font-style: italic;
 }
 
 .hh-floating-label input:not(:placeholder-shown) ~ label {
@@ -19,10 +20,12 @@
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+
 }
 
 .hh-floating-label.hh-ph-hidden label {
   padding-top: calc(var(--input-padding-y) / 3);
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
+  font-style: normal;
 }
